@@ -136,6 +136,7 @@ jobs:
 
       - name: Run Trivy vulnerability scanner for php 7
         uses: aquasecurity/trivy-action@master
+        id: trivy-7
         with:
           image-ref: 'ghcr.io/${{ env.REPO }}:7'
           format: 'sarif'
@@ -143,6 +144,7 @@ jobs:
 
       - name: Run Trivy vulnerability scanner for php 8
         uses: aquasecurity/trivy-action@master
+        id: trivy-8
         with:
           image-ref: 'ghcr.io/${{ env.REPO }}:8'
           format: 'sarif'
@@ -153,5 +155,5 @@ jobs:
         if: always() 
         with:
           sarif_file: |
-            'trivy-php7-results.sarif'
-            'trivy-php8-results.sarif'
+            steps.trivy-7.output
+            steps.trivy-8.output
