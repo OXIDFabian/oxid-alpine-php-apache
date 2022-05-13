@@ -20,7 +20,7 @@ jobs:
           output: 'trivy-php7-results.sarif'
 
       - name: Upload Trivy scan results of php 7 to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v1
+        uses: github/codeql-action/upload-sarif@v2
         if: always() 
         with:
           sarif_file: 'trivy-php7-results.sarif'
@@ -33,7 +33,7 @@ jobs:
           output: 'trivy-php8-results.sarif'
 
       - name: Upload Trivy scan results of php 8 to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v1
+        uses: github/codeql-action/upload-sarif@v2
         if: always() 
         with:
           sarif_file: 'trivy-php8-results.sarif'
