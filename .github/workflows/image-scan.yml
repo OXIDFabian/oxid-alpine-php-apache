@@ -1,4 +1,4 @@
-name: build
+name: Scan images
 on:
   registry_package:
 
