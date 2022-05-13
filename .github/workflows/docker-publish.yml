@@ -56,7 +56,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GH_PAT }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Login to DockerHub
         if: github.event_name != 'pull_request'
@@ -121,3 +121,6 @@ jobs:
           cosign sign ${{ env.REPO }}:7@${{ steps.build-and-push-7.outputs.digest }}
           cosign sign ${{ env.REGISTRY }}/${{ env.REPO }}:8@${{ steps.build-and-push-8.outputs.digest }}
           cosign sign ${{ env.REPO }}:8@${{ steps.build-and-push-8.outputs.digest }}
+
+      - name: Trigger image scan workflow
+        uses: ./.github/workflows/image-scan.yml

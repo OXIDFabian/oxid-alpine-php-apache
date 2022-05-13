@@ -1,6 +1,6 @@
 name: Scan images
 on:
-  registry_package:
+  workflow_call:
 
 jobs:
   build:
