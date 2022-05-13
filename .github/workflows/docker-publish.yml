@@ -155,5 +155,5 @@ jobs:
         if: always() 
         with:
           sarif_file: |
-            steps.trivy-7.output
-            steps.trivy-8.output
+            ${{ steps.trivy-7.output }}
+            ${{ steps.trivy-8.output }}
