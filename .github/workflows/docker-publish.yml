@@ -141,12 +141,6 @@ jobs:
           format: 'sarif'
           output: 'trivy-php7-results.sarif'
 
-      - name: Upload Trivy scan results of php 7 to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        if: always() 
-        with:
-          sarif_file: 'trivy-php7-results.sarif'
-
       - name: Run Trivy vulnerability scanner for php 8
         uses: aquasecurity/trivy-action@master
         with:
@@ -154,8 +148,10 @@ jobs:
           format: 'sarif'
           output: 'trivy-php8-results.sarif'
 
-      - name: Upload Trivy scan results of php 8 to GitHub Security tab
+      - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
         if: always() 
         with:
-          sarif_file: 'trivy-php8-results.sarif'
+          sarif_file: |
+            'trivy-php7-results.sarif'
+            'trivy-php8-results.sarif'
