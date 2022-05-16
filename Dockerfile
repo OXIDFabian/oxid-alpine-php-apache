@@ -24,6 +24,7 @@ RUN apk --no-cache --update \
     php${PHP_VERSION}-zip \
     php${PHP_VERSION}-ctype \
     php${PHP_VERSION}-session \
+    php${PHP_VERSION}-json \
     && mkdir -p /var/www/oxideshop/source \
     && chown -R apache:apache /var/www/ \
     && \
