@@ -40,6 +40,4 @@ ADD docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
 
 RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint"]
 
-HEALTHCHECK CMD wget -q --no-cache --spider localhost
-
 ENTRYPOINT ["/usr/local/bin/docker-php-entrypoint"]
