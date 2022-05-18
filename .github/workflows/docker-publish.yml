@@ -63,6 +63,10 @@ jobs:
       contents: read
       packages: write
       id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        php_version: [ "7", "8" ]
 
     steps:
       - name: Checkout repository
@@ -111,35 +115,19 @@ jobs:
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
-      - name: Build and push php 7 image
+      - name: Build and push php ${{ matrix.php_version }} image
         uses: docker/build-push-action@v3
-        id: build-and-push-7
+        id: build-and-push-${{ matrix.php_version }}
         with:
           context: .
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args: PHP_VERSION=7
+          build-args: PHP_VERSION=${{ matrix.php_version }}
           tags: |
-            ${{ env.REGISTRY }}/${{ env.REPO }}:7
-            ${{ env.REPO }}:7
-
-      # Build and push Docker image with Buildx (don't push on PR)
-      # https://github.com/docker/build-push-action
-      - name: Build and push php 8 image
-        uses: docker/build-push-action@v3
-        id: build-and-push-8
-        with:
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: ${{ github.event_name != 'pull_request' }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          build-args: PHP_VERSION=8
-          tags: |
-            ${{ env.REGISTRY }}/${{ env.REPO }}:8
-            ${{ env.REPO }}:8
+            ${{ env.REGISTRY }}/${{ env.REPO }}:${{ matrix.php_version }}
+            ${{ env.REPO }}:${{ matrix.php_version }}
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
@@ -153,10 +141,8 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: |
-          cosign sign ${{ env.REGISTRY }}/${{ env.REPO }}:7@${{ steps.build-and-push-7.outputs.digest }}
-          cosign sign ${{ env.REPO }}:7@${{ steps.build-and-push-7.outputs.digest }}
-          cosign sign ${{ env.REGISTRY }}/${{ env.REPO }}:8@${{ steps.build-and-push-8.outputs.digest }}
-          cosign sign ${{ env.REPO }}:8@${{ steps.build-and-push-8.outputs.digest }}
+          cosign sign ${{ env.REGISTRY }}/${{ env.REPO }}:${{ matrix.php_version }}@${{ steps.build-and-push-${{ matrix.php_version }}.outputs.digest }}
+          cosign sign ${{ env.REPO }}:${{ matrix.php_version }}@${{ steps.build-and-push-${{ matrix.php_version }}.outputs.digest }}
 
   scan_php7_image:
     runs-on: ubuntu-latest
