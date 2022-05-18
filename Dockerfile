@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3
 ARG PHP_VERSION=8
 # Setup apache and php
 RUN apk --no-cache --update \
@@ -36,7 +36,7 @@ COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
 EXPOSE 80
 
-ADD docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
+COPY docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
 
 RUN ["chmod", "+x", "/usr/local/bin/docker-php-entrypoint"]
 
