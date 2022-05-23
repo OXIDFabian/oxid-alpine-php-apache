@@ -1,9 +1,4 @@
-name: Docker
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+name: Build images and push to registry
 
 on:
   schedule:
@@ -34,7 +29,15 @@ jobs:
         uses: hadolint/hadolint-action@v2.0.0
         with:
           dockerfile: Dockerfile
-          failure-threshold: error
+          format: sarif
+          output-file: hadolint-results.sarif
+          no-fail: true
+
+      - name: Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: hadolint-results.sarif
+          wait-for-processing: true
 
       - name: Update Pull Request
         uses: actions/github-script@v6

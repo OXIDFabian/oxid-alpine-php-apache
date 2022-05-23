@@ -1,5 +1,10 @@
-FROM alpine:3
+ARG COMPOSER_VERSION=2.2
+ARG ALPINE_VERSION=3.15
 ARG PHP_VERSION=8
+
+FROM composer:${COMPOSER_VERSION} as composer
+FROM alpine:${ALPINE_VERSION}
+
 # Setup apache and php
 RUN apk --no-cache --update \
     add apache2 \
@@ -29,10 +34,10 @@ RUN apk --no-cache --update \
     && chown -R apache:apache /var/www/ \
     && \
     if [ ${PHP_VERSION} = 8 ]; then \
-        ln -s /usr/bin/php${PHP_VERSION} /usr/bin/php; \
+        ln -sf /usr/bin/php${PHP_VERSION} /usr/bin/php; \
     fi
 
-COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 EXPOSE 80
 
