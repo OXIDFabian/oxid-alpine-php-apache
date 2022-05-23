@@ -72,6 +72,11 @@ jobs:
       fail-fast: false
       matrix:
         php_version: [ "7", "8" ]
+        include:
+          - php_version: 7
+            php_package_version: 7.4.29-r0
+          - php_version: 8
+            php_package_version: 8.0.18-r0
 
     steps:
       - name: Checkout repository
@@ -129,7 +134,9 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args: PHP_VERSION=${{ matrix.php_version }}
+          build-args: |
+            PHP_VERSION=${{ matrix.php_version }}
+            PHP_PACKAGE_VERSION=${{ matrix.php_package_version }}
           tags: |
             ${{ env.REGISTRY }}/${{ env.REPO }}:${{ matrix.php_version }}
             ${{ env.REPO }}:${{ matrix.php_version }}
