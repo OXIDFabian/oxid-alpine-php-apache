@@ -74,7 +74,7 @@ jobs:
         php_version: [ "7", "8" ]
         include:
           - php_version: 7
-            php_package_version: 7.4.29-r0
+            php_package_version: 7.4.30-r0
           - php_version: 8
             php_package_version: 8.0.18-r0
 
