@@ -1,17 +1,17 @@
 ARG COMPOSER_VERSION=2.2
-ARG ALPINE_VERSION=3.15
+ARG ALPINE_VERSION=3.16
 
 FROM composer:"${COMPOSER_VERSION}" as composer
 FROM alpine:"${ALPINE_VERSION}"
 ARG PHP_VERSION=8
-ARG PHP_PACKAGE_VERSION=8.0.18-r0
+ARG PHP_PACKAGE_VERSION=8.0.20-r0
 ENV PHP_VERSION "$PHP_VERSION"
 # Setup apache and php
 RUN apk --no-cache --update \
-    add apache2=2.4.53-r0 \
-    apache2-utils=2.4.53-r0 \
-    curl=7.80.0-r1 \
-    git=2.34.2-r0 \
+    add apache2=2.4.54-r0 \
+    apache2-utils=2.4.54-r0 \
+    curl=7.83.1-r1 \
+    git=2.36.1-r0 \
     mysql-client=10.6.8-r0 \
     php"${PHP_VERSION}"-common="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-apache2="${PHP_PACKAGE_VERSION}" \
