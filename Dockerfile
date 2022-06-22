@@ -5,13 +5,15 @@ FROM composer:"${COMPOSER_VERSION}" as composer
 FROM alpine:"${ALPINE_VERSION}"
 ARG PHP_VERSION=8
 ARG PHP_PACKAGE_VERSION=8.0.20-r0
+ARG CURL_PACKAGE_VERSION=7.83.1-r1
+ARG GIT_PACKAGE_VERSION=2.36.1-r0
 ENV PHP_VERSION "$PHP_VERSION"
 # Setup apache and php
 RUN apk --no-cache --update \
     add apache2=2.4.54-r0 \
     apache2-utils=2.4.54-r0 \
-    curl=7.83.1-r1 \
-    git=2.36.1-r0 \
+    curl="${CURL_PACKAGE_VERSION}" \
+    git="${GIT_PACKAGE_VERSION}" \
     mysql-client=10.6.8-r0 \
     php"${PHP_VERSION}"-common="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-apache2="${PHP_PACKAGE_VERSION}" \
