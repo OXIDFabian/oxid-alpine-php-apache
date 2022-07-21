@@ -71,7 +71,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: [ "7", "8" ]
+        php_version: [ "7", "8", "81" ]
         include:
           - php_version: 7
             php_package_version: 7.4.30-r0
@@ -80,6 +80,11 @@ jobs:
             git_package_version: 2.34.4-r0
           - php_version: 8
             php_package_version: 8.0.21-r0
+            alpine_version: 3.16
+            curl_package_version: 7.83.1-r2
+            git_package_version: 2.36.2-r0
+          - php_version: 81
+            php_package_version: 8.1.8-r0
             alpine_version: 3.16
             curl_package_version: 7.83.1-r2
             git_package_version: 2.36.2-r0
@@ -175,7 +180,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: [ "7", "8" ]
+        php_version: [ "7", "8", "81" ]
 
     steps:
       - name: downcase REPO
@@ -194,4 +199,3 @@ jobs:
         if: always() 
         with:
           sarif_file: 'trivy-php${{ matrix.php_version }}-results.sarif'
-          
