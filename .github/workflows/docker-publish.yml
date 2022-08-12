@@ -79,12 +79,12 @@ jobs:
             curl_package_version: 7.80.0-r2
             git_package_version: 2.34.4-r0
           - php_version: 8
-            php_package_version: 8.0.21-r0
+            php_package_version: 8.0.22-r0
             alpine_version: 3.16
             curl_package_version: 7.83.1-r2
             git_package_version: 2.36.2-r0
           - php_version: 81
-            php_package_version: 8.1.8-r0
+            php_package_version: 8.1.9-r0
             alpine_version: 3.16
             curl_package_version: 7.83.1-r2
             git_package_version: 2.36.2-r0
