@@ -14,7 +14,7 @@ RUN apk --no-cache --update \
     apache2-utils=2.4.54-r0 \
     curl="${CURL_PACKAGE_VERSION}" \
     git="${GIT_PACKAGE_VERSION}" \
-    mysql-client=10.6.8-r0 \
+    mysql-client=10.6.9-r0 \
     php"${PHP_VERSION}"-common="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-apache2="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-bcmath="${PHP_PACKAGE_VERSION}" \
