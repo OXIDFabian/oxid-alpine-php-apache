@@ -15,7 +15,7 @@ RUN apk --no-cache --update \
     curl="${CURL_PACKAGE_VERSION}" \
     git="${GIT_PACKAGE_VERSION}" \
     mysql-client=10.6.9-r0 \
-    msmtp="${MSMTP_VERSION}"
+    msmtp="${MSMTP_VERSION}" \
     php"${PHP_VERSION}"-common="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-apache2="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-bcmath="${PHP_PACKAGE_VERSION}" \
