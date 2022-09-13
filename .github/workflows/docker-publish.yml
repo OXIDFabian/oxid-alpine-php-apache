@@ -154,6 +154,7 @@ jobs:
             ALPINE_VERSION=${{ matrix.alpine_version }}
             GIT_PACKAGE_VERSION=${{ matrix.git_package_version }}
             CURL_PACKAGE_VERSION=${{ matrix.curl_package_version }}
+            MSMTP_VERSION=${{ matrix.msmtp_version }}
           tags: |
             ${{ env.REGISTRY }}/${{ env.REPO }}:${{ matrix.php_version }}
             ${{ env.REPO }}:${{ matrix.php_version }}
