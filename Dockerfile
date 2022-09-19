@@ -38,6 +38,7 @@ RUN apk --no-cache --update \
     php"${PHP_VERSION}"-ctype="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-session="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-fileinfo="${PHP_PACKAGE_VERSION}" \
+    php"${PHP_VERSION}"-soap="${PHP_PACKAGE_VERSION}" \
     && mkdir -p /var/www/oxideshop/source \
     && chown -R apache:apache /var/www/ \
     && \
