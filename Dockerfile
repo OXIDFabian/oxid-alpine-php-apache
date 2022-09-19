@@ -32,6 +32,7 @@ RUN apk --no-cache --update \
     php"${PHP_VERSION}"-phar="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-tokenizer="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-xml="${PHP_PACKAGE_VERSION}" \
+    php"${PHP_VERSION}"-simplexml="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-xmlwriter="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-zip="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-ctype="${PHP_PACKAGE_VERSION}" \
