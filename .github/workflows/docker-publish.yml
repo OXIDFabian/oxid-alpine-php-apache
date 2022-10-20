@@ -86,7 +86,7 @@ jobs:
             git_package_version: 2.36.3-r0
             msmtp_version: 1.8.20-r0
           - php_version: 81
-            php_package_version: 8.1.9-r0
+            php_package_version: 8.1.11-r0
             alpine_version: 3.16
             curl_package_version: 7.83.1-r3
             git_package_version: 2.36.3-r0
