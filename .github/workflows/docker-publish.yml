@@ -80,14 +80,14 @@ jobs:
             git_package_version: 2.34.5-r0
             msmtp_version: 1.8.19-r0
           - php_version: 8
-            php_package_version: 8.0.25-r0
+            php_package_version: 8.0.26-r0
             alpine_version: 3.16
             curl_package_version: 7.83.1-r4
             git_package_version: 2.36.3-r0
             msmtp_version: 1.8.20-r0
           - php_version: 81
-            php_package_version: 8.1.12-r0
-            alpine_version: 3.16
+            php_package_version: 8.1.13-r0
+            alpine_version: 3.17
             curl_package_version: 7.83.1-r4
             git_package_version: 2.36.3-r0
             msmtp_version: 1.8.20-r0
