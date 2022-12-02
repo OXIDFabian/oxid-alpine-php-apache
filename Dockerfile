@@ -10,13 +10,15 @@ ARG GIT_PACKAGE_VERSION=2.36.3-r0
 ARG MSMTP_VERSION=1.8.20-r0
 ENV PHP_VERSION "$PHP_VERSION"
 ENV MSMTP_VERSION "$MSMTP_VERSION"
+ENV APACHE_VERSION=2.4.54-r0
+ENV MYSQL_CLIENT_VERSION=10.6.10-r0
 # Setup apache and php
 RUN apk --no-cache --update \
-    add apache2=2.4.54-r0 \
-    apache2-utils=2.4.54-r0 \
+    add apache2="${APACHE_VERSION}" \
+    apache2-utils="${APACHE_VERSION}" \
     curl="${CURL_PACKAGE_VERSION}" \
     git="${GIT_PACKAGE_VERSION}" \
-    mysql-client=10.6.10-r0 \
+    mysql-client="${MYSQL_CLIENT_VERSION}" \
     msmtp="${MSMTP_VERSION}" \
     php"${PHP_VERSION}"-common="${PHP_PACKAGE_VERSION}" \
     php"${PHP_VERSION}"-apache2="${PHP_PACKAGE_VERSION}" \
