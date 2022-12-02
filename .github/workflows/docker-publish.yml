@@ -79,18 +79,24 @@ jobs:
             curl_package_version: 7.80.0-r4
             git_package_version: 2.34.5-r0
             msmtp_version: 1.8.19-r0
+            apache_version: 2.4.54-r0
+            mysql_client_version: 10.6.10-r0
           - php_version: 8
             php_package_version: 8.0.26-r0
             alpine_version: 3.16
             curl_package_version: 7.83.1-r4
             git_package_version: 2.36.3-r0
             msmtp_version: 1.8.20-r0
+            apache_version: 2.4.54-r0
+            mysql_client_version: 10.6.10-r0
           - php_version: 81
             php_package_version: 8.1.13-r0
             alpine_version: 3.17
-            curl_package_version: 7.83.1-r4
-            git_package_version: 2.36.3-r0
-            msmtp_version: 1.8.20-r0
+            curl_package_version: 7.86.0-r1
+            git_package_version: 2.38.1-r0
+            msmtp_version: 1.8.22-r0
+            apache_version: 2.4.54-r1
+            mysql_client_version: 10.6.11-r0
 
     steps:
       - name: Checkout repository
@@ -155,6 +161,8 @@ jobs:
             GIT_PACKAGE_VERSION=${{ matrix.git_package_version }}
             CURL_PACKAGE_VERSION=${{ matrix.curl_package_version }}
             MSMTP_VERSION=${{ matrix.msmtp_version }}
+            APACHE_VERSION=${{ matrix.apache_version }}
+            MYSQL_CLIENT_VERSION=${{ matrix.mysql_client_version }}
           tags: |
             ${{ env.REGISTRY }}/${{ env.REPO }}:${{ matrix.php_version }}
             ${{ env.REPO }}:${{ matrix.php_version }}
