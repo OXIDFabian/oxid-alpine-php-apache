@@ -76,24 +76,24 @@ jobs:
           - php_version: 7
             php_package_version: 7.4.33-r0
             alpine_version: 3.15
-            curl_package_version: 7.80.0-r4
+            curl_package_version: 7.80.0-r5
             git_package_version: 2.34.5-r0
             msmtp_version: 1.8.19-r0
             apache_version: 2.4.54-r0
             mysql_client_version: 10.6.10-r0
           - php_version: 8
-            php_package_version: 8.0.26-r0
+            php_package_version: 8.0.27-r0
             alpine_version: 3.16
-            curl_package_version: 7.83.1-r4
+            curl_package_version: 7.83.1-r5
             git_package_version: 2.36.3-r0
             msmtp_version: 1.8.20-r0
             apache_version: 2.4.54-r0
             mysql_client_version: 10.6.10-r0
           - php_version: 81
-            php_package_version: 8.1.13-r0
+            php_package_version: 8.1.14-r0
             alpine_version: 3.17
-            curl_package_version: 7.86.0-r1
-            git_package_version: 2.38.1-r0
+            curl_package_version: 7.87.0-r0
+            git_package_version: 2.38.2-r0
             msmtp_version: 1.8.22-r0
             apache_version: 2.4.54-r1
             mysql_client_version: 10.6.11-r0
