@@ -71,32 +71,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: [ "7", "8", "81" ]
+        php_version: [ "7", "8", "81", "82" ]
         include:
           - php_version: 7
-            php_package_version: 7.4.33-r0
             alpine_version: 3.15
-            curl_package_version: 7.80.0-r6
-            git_package_version: 2.34.7-r0
-            msmtp_version: 1.8.19-r0
-            apache_version: 2.4.55-r0
-            mysql_client_version: 10.6.12-r0
           - php_version: 8
-            php_package_version: 8.0.28-r0
             alpine_version: 3.16
-            curl_package_version: 7.83.1-r5
-            git_package_version: 2.36.4-r0
-            msmtp_version: 1.8.20-r0
-            apache_version: 2.4.55-r0
-            mysql_client_version: 10.6.10-r0
           - php_version: 81
-            php_package_version: 8.1.16-r0
             alpine_version: 3.17
-            curl_package_version: 7.87.0-r1
-            git_package_version: 2.38.3-r1
-            msmtp_version: 1.8.22-r0
-            apache_version: 2.4.55-r0
-            mysql_client_version: 10.6.11-r0
+          - php_version: 82
+            alpine_version: 3.17
 
     steps:
       - name: Checkout repository
@@ -156,13 +140,7 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             PHP_VERSION=${{ matrix.php_version }}
-            PHP_PACKAGE_VERSION=${{ matrix.php_package_version }}
             ALPINE_VERSION=${{ matrix.alpine_version }}
-            GIT_PACKAGE_VERSION=${{ matrix.git_package_version }}
-            CURL_PACKAGE_VERSION=${{ matrix.curl_package_version }}
-            MSMTP_VERSION=${{ matrix.msmtp_version }}
-            APACHE_VERSION=${{ matrix.apache_version }}
-            MYSQL_CLIENT_VERSION=${{ matrix.mysql_client_version }}
           tags: |
             ${{ env.REGISTRY }}/${{ env.REPO }}:${{ matrix.php_version }}
             ${{ env.REPO }}:${{ matrix.php_version }}
@@ -193,7 +171,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: [ "7", "8", "81" ]
+        php_version: [ "7", "8", "81", "82" ]
 
     steps:
       - name: downcase REPO
