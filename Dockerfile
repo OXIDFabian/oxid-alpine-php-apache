@@ -14,7 +14,6 @@ RUN apk --no-cache --update \
     git \
     mysql-client \
     msmtp \
-    libmemcached \
     php"${PHP_VERSION}"-common \
     php"${PHP_VERSION}"-apache2 \
     php"${PHP_VERSION}"-bcmath \
