@@ -71,7 +71,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: [ "7", "8", "81", "82", "83" ]
+        php_version: [ "7", "8", "81", "82" ]
         include:
           - php_version: 7
             alpine_version: 3.15
@@ -173,7 +173,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: [ "7", "8", "81", "82", "83" ]
+        php_version: [ "7", "8", "81", "82" ]
 
     steps:
       - name: downcase REPO
