@@ -81,8 +81,8 @@ jobs:
             alpine_version: 3.17
           - php_version: 82
             alpine_version: 3.18
-          - php_version: 83
-            alpine_version: edge
+#          - php_version: 83
+#            alpine_version: edge
 
     steps:
       - name: Checkout repository
