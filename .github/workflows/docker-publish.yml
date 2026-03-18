@@ -71,7 +71,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: [ "7", "8", "81", "82" ]
+        php_version: [ "7", "8", "81", "82", "83", "84" ]
         include:
           - php_version: 7
             alpine_version: 3.15
@@ -81,8 +81,10 @@ jobs:
             alpine_version: 3.17
           - php_version: 82
             alpine_version: 3.18
-#          - php_version: 83
-#            alpine_version: edge
+          - php_version: 83
+            alpine_version: 3.19
+          - php_version: 84
+            alpine_version: 3.21
 
     steps:
       - name: Checkout repository
@@ -173,7 +175,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php_version: [ "7", "8", "81", "82" ]
+        php_version: [ "7", "8", "81", "82", "83", "84" ]
 
     steps:
       - name: downcase REPO
